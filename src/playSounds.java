@@ -9,20 +9,14 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class playSounds {
     
-    public playSounds() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        File file = new File("src/sounds/click.wav");
+    public playSounds(String filePath) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        
+        File file = new File(filePath);
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
         Clip clip = AudioSystem.getClip();
         clip.open(audioStream);
 
         clip.start();
     }
-
-    public void clickSound() {
-        
-    }
-
-    public void winSound() {
-
-    }
+    
 }

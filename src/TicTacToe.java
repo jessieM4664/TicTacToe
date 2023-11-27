@@ -64,7 +64,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
                     if (buttons[i].getText()=="") {
                         buttons[i].setForeground(new Color(255,0,0));
                         buttons[i].setText("X");
-                        audioClips();
+                        audioClips("src/sounds/click.wav");
                         player1_turn = false;
                         textfeild.setText("O Turn");
                         check();
@@ -73,7 +73,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
                     if (buttons[i].getText()=="") {
                         buttons[i].setForeground(new Color(0,0,255));
                         buttons[i].setText("O");
-                        audioClips();
+                        audioClips("src/sounds/click.wav");
                         player1_turn = true;
                         textfeild.setText("X Turn");
                         check();
@@ -207,9 +207,9 @@ public class TicTacToe implements java.awt.event.ActionListener {
         textfeild.setText("O WINS!");
     }
 
-    public void audioClips() {
+    public void audioClips(String filePath) {
         try {
-            new playSounds();
+            new playSounds(filePath);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             ex.printStackTrace();
         }
