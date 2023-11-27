@@ -22,7 +22,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
 
         textfeild.setBackground(new Color(25,25,25));
         textfeild.setForeground(new Color(25,255,0));
-        textfeild.setFont(new Font("Ink Free", Font.BOLD,75));
+        textfeild.setFont(new Font("Serif", Font.BOLD, 50));
         textfeild.setHorizontalAlignment(JLabel.CENTER);
         textfeild.setText("Tic-Tac-Toe");
         textfeild.setOpaque(true);
@@ -36,7 +36,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
         for (int i = 0; i < 9; i++) {
             buttons[i] = new JButton();
             button_panel.add(buttons[i]);
-            buttons[i].setFont(new Font("MV Boli", Font.BOLD, 120));
+            buttons[i].setFont(new Font("Serif", Font.BOLD, 120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
         }
@@ -182,7 +182,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfeild.setText("X WINS");
+        textfeild.setText("X WINS!");
     }
     
     public void oWins(int a, int b, int c) {
@@ -193,7 +193,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
         for (int i = 0; i < 9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfeild.setText("O WINS");
+        textfeild.setText("O WINS!");
     }
 
 
