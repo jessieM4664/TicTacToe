@@ -1,7 +1,16 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import javax.swing.text.PlainDocument;
 
 public class TicTacToe implements java.awt.event.ActionListener {
 
@@ -55,6 +64,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
                     if (buttons[i].getText()=="") {
                         buttons[i].setForeground(new Color(255,0,0));
                         buttons[i].setText("X");
+                        audioClips();
                         player1_turn = false;
                         textfeild.setText("O Turn");
                         check();
@@ -63,6 +73,7 @@ public class TicTacToe implements java.awt.event.ActionListener {
                     if (buttons[i].getText()=="") {
                         buttons[i].setForeground(new Color(0,0,255));
                         buttons[i].setText("O");
+                        audioClips();
                         player1_turn = true;
                         textfeild.setText("X Turn");
                         check();
@@ -196,5 +207,12 @@ public class TicTacToe implements java.awt.event.ActionListener {
         textfeild.setText("O WINS!");
     }
 
+    public void audioClips() {
+        try {
+            new playSounds();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }
